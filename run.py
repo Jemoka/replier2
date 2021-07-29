@@ -16,11 +16,11 @@ import uuid
 
 config_defaults = dict(
     epochs = 5,
-    lr = 1e-4,
+    lr = 5e-5,
     warmup = 100,
     max_length = 64,
     base_model = "facebook/bart-base",
-    batch_size = 28
+    batch_size = 24
 )
 
 run = wandb.init(project='replier2', entity='jemoka', config=config_defaults)
