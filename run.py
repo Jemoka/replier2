@@ -169,7 +169,7 @@ while epoch < EPOCHS:
         avg_bleu = (avg_bleu+bleu)/2
         max_bleu = max(max_bleu, bleu)
 
-        if (i % 10 == 0):
+        if (i % 20 == 0):
             try: 
                 run.log({"loss": loss.item(),
                          "accuracy": acc,
