@@ -114,8 +114,8 @@ while epoch < EPOCHS:
 
     for i, chicken in enumerate(databatched_loader):
         if (i % 1000 == 0 and i != 0):
-            tokenizer.save_pretrained(f"./training/bart-replier-{modelID}:ROUTINE::{epochs}:{i}")
-            model.save_pretrained(f"./training/bart-replier-{modelID}:ROUTINE::{epochs}:{i}")
+            tokenizer.save_pretrained(f"./training/bart-replier-{modelID}:ROUTINE::{epoch}:{i}")
+            model.save_pretrained(f"./training/bart-replier-{modelID}:ROUTINE::{epoch}:{i}")
 
         input_data = chicken['input_data'].to(device)
         output_data = chicken['output_data'].to(device)
