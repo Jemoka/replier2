@@ -17,7 +17,7 @@ import uuid
 config_defaults = dict(
     epochs = 5,
     lr = 5e-5,
-    warmup = 4000,
+    warmup = 100,
     max_length = 64,
     base_model = "facebook/bart-base",
     batch_size = 28
@@ -113,7 +113,7 @@ while epoch < EPOCHS:
     databatched_loader = tqdm.tqdm(loader)
 
     for i, chicken in enumerate(databatched_loader):
-        if (i % 10000 == 0 and i != 0):
+        if (i % 1000 == 0 and i != 0):
             tokenizer.save_pretrained(f"./training/bart-replier-{modelID}:ROUTINE::{epochs}:{i}")
             model.save_pretrained(f"./training/bart-replier-{modelID}:ROUTINE::{epochs}:{i}")
 
@@ -169,7 +169,7 @@ while epoch < EPOCHS:
         avg_bleu = (avg_bleu+bleu)/2
         max_bleu = max(max_bleu, bleu)
 
-        if (i % 20 == 0):
+        if (i % 40 == 0):
             try: 
                 run.log({"loss": loss.item(),
                          "accuracy": acc,
