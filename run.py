@@ -16,7 +16,7 @@ import uuid
 
 config_defaults = dict(
     epochs = 5,
-    lr = 5e-5,
+    lr = 1e-4,
     warmup = 100,
     max_length = 64,
     base_model = "facebook/bart-base",
@@ -56,6 +56,9 @@ class ReplierDataset(torch.utils.data.Dataset):
 
         input_string = self.data[0][idx]
         output_string = self.data[1][idx]
+
+        if input_string == output_string:
+            return self.__getitem__(random.randint(0, len(self)-1))
 
         try: 
             if output_string[-1] not in ['.', '?', '>', '!', '"']:
