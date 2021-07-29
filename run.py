@@ -16,7 +16,7 @@ import uuid
 
 config_defaults = dict(
     epochs = 5,
-    lr = 5e-5,
+    lr = 1e-4,
     warmup = 100,
     max_length = 64,
     base_model = "facebook/bart-base",
